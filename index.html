@@ -190,7 +190,14 @@ tr:hover td { background: #f0f3f4; }
         </div>
       </div>
       <div class="field-row">
-        <div><label class="field-label">Teléfono</label><input type="tel" id="input-tel" placeholder="6XX XXX XXX"></div>
+        <div><label class="field-label">Teléfono</label>
+          <div style="display:flex;gap:6px;margin-bottom:6px">
+            <button type="button" onclick="setCodigoPais('+34')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#e53935;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">E</button>
+            <button type="button" onclick="setCodigoPais('+7')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#ffffff;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">R</button>
+            <button type="button" onclick="setCodigoPais('+380')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#1565c0;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">U</button>
+            <button type="button" onclick="setCodigoPais('+')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#ffffff;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
+          </div>
+          <input type="tel" id="input-tel" placeholder="6XX XXX XXX"></div>
         <div>
           <label class="field-label">Barrio</label>
           <div class="suggest-wrap">
@@ -1065,7 +1072,21 @@ function setTipo(tipo) {
 
 let pagoMetodo = 'tpv';
 
-function setPago(metodo) {
+function setCodigoPais(codigo) {
+  const tel = document.getElementById('input-tel');
+  if (!tel) return;
+  const actual = tel.value.trim();
+  // Si ya tiene código de país, no tocar
+  if (actual.startsWith('+')) return;
+  if (codigo === '+') {
+    tel.value = '+';
+  } else {
+    tel.value = codigo + ' ' + actual;
+  }
+  tel.focus();
+}
+
+
   pagoMetodo = metodo;
   const tpvBtn = document.getElementById('pago-tpv');
   const efBtn = document.getElementById('pago-efectivo');

@@ -191,11 +191,11 @@ tr:hover td { background: #f0f3f4; }
       </div>
       <div class="field-row">
         <div><label class="field-label">Teléfono</label>
-          <div style="display:flex;gap:6px;margin-bottom:6px">
-            <button type="button" onclick="setCodigoPais('+34')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#e53935;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">E</button>
-            <button type="button" onclick="setCodigoPais('+7')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#ffffff;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">R</button>
-            <button type="button" onclick="setCodigoPais('+380')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#1565c0;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">U</button>
-            <button type="button" onclick="setCodigoPais('+')" style="padding:4px 10px;border-radius:6px;border:1px solid #78909c;background:#78909c;color:#ffffff;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
+          <div style="display:flex;gap:8px;margin-bottom:8px">
+            <button type="button" onclick="setCodigoPais('+34')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#e53935;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1.2">E<span style="font-size:9px;color:#546e7a;font-weight:400;text-shadow:none">+34</span></button>
+            <button type="button" onclick="setCodigoPais('+7')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#ffffff;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1.2">R<span style="font-size:9px;color:#546e7a;font-weight:400;text-shadow:none">+7</span></button>
+            <button type="button" onclick="setCodigoPais('+380')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#1565c0;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1.2">U<span style="font-size:9px;color:#546e7a;font-weight:400;text-shadow:none">+380</span></button>
+            <button type="button" onclick="setCodigoPais('+')" style="padding:6px 16px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#37474f;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:18px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
           </div>
           <input type="tel" id="input-tel" placeholder="6XX XXX XXX"></div>
         <div>
@@ -867,7 +867,7 @@ function renderGraficos() {
 }
 
 function pedirResena(nombre, tel) {
-  const msg = encodeURIComponent(`Hola ${nombre} 🌸 Muchas gracias por tu compra en Entreflores. Si quedaste contento/a, nos ayudarías mucho dejando una reseña en Google. Solo tarda un minuto: ${REVIEW_LINK} ¡Gracias de corazón!`);
+  const msg = encodeURIComponent(`Hola ${nombre} 🌸 Gracias por tu visita a Entreflores. Si te gustó, nos ayudarías mucho con una reseña en Google — tarda un minuto. Y de regalo, un 10% en tu próxima compra de +20€ 💐\n👉 ${REVIEW_LINK}`);
   const telLimpio = (tel||'').replace(/\s/g,'').replace('+','');
   const waUrl = telLimpio ? `https://wa.me/${telLimpio}?text=${msg}` : `https://wa.me/?text=${msg}`;
   const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(REVIEW_LINK)}&text=${encodeURIComponent(`Hola ${nombre} 🌸 ¡Gracias por tu compra en Entreflores! ¿Nos dejás una reseña en Google?`)}`;
@@ -1075,10 +1075,13 @@ let pagoMetodo = 'tpv';
 function setCodigoPais(codigo) {
   const tel = document.getElementById('input-tel');
   if (!tel) return;
-  const actual = tel.value.trim();
-  if (actual.startsWith('+')) return;
+  let actual = tel.value.trim();
+  // Si ya tiene código de país, quitarlo primero
+  if (actual.startsWith('+')) {
+    actual = actual.replace(/^\+\d+\s*/, '');
+  }
   if (codigo === '+') {
-    tel.value = '+';
+    tel.value = '+' + actual;
   } else {
     tel.value = codigo + ' ' + actual;
   }

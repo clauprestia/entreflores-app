@@ -1076,7 +1076,6 @@ function setCodigoPais(codigo) {
   const tel = document.getElementById('input-tel');
   if (!tel) return;
   const actual = tel.value.trim();
-  // Si ya tiene código de país, no tocar
   if (actual.startsWith('+')) return;
   if (codigo === '+') {
     tel.value = '+';
@@ -1086,8 +1085,7 @@ function setCodigoPais(codigo) {
   tel.focus();
 }
 
-
-  pagoMetodo = metodo;
+function setPago(metodo) {
   const tpvBtn = document.getElementById('pago-tpv');
   const efBtn = document.getElementById('pago-efectivo');
   const base = 'flex:1;padding:7px 12px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:DM Sans,sans-serif';

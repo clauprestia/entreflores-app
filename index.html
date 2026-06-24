@@ -192,10 +192,10 @@ tr:hover td { background: #f0f3f4; }
       <div class="field-row">
         <div><label class="field-label">Teléfono</label>
           <div style="display:flex;gap:8px;margin-bottom:8px">
-            <button type="button" onclick="setCodigoPais('+34')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#e53935;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1.2">E<span style="font-size:9px;color:#546e7a;font-weight:400;text-shadow:none">+34</span></button>
-            <button type="button" onclick="setCodigoPais('+7')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#ffffff;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1.2">R<span style="font-size:9px;color:#546e7a;font-weight:400;text-shadow:none">+7</span></button>
-            <button type="button" onclick="setCodigoPais('+380')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#1565c0;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1.2">U<span style="font-size:9px;color:#546e7a;font-weight:400;text-shadow:none">+380</span></button>
-            <button type="button" onclick="setCodigoPais('+')" style="padding:6px 16px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#37474f;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:18px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
+            <button type="button" onclick="setCodigoPais('+34')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#e53935;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">E<span style="font-size:8px;color:#546e7a;font-weight:400;text-shadow:none">+34</span></button>
+            <button type="button" onclick="setCodigoPais('+7')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#ffffff;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">R<span style="font-size:8px;color:#546e7a;font-weight:400;text-shadow:none">+7</span></button>
+            <button type="button" onclick="setCodigoPais('+380')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#1565c0;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">U<span style="font-size:8px;color:#546e7a;font-weight:400;text-shadow:none">+380</span></button>
+            <button type="button" onclick="setCodigoPais('+')" style="padding:6px 16px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#37474f;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:22px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
           </div>
           <input type="tel" id="input-tel" placeholder="6XX XXX XXX"></div>
         <div>
@@ -1076,14 +1076,15 @@ function setCodigoPais(codigo) {
   const tel = document.getElementById('input-tel');
   if (!tel) return;
   let actual = tel.value.trim();
-  // Si ya tiene código de país, quitarlo primero
+  // Quitar cualquier código de país existente (todo lo que empiece con + hasta el primer espacio, o todo si no hay espacio)
   if (actual.startsWith('+')) {
-    actual = actual.replace(/^\+\d+\s*/, '');
+    const spaceIdx = actual.indexOf(' ');
+    actual = spaceIdx !== -1 ? actual.slice(spaceIdx + 1) : '';
   }
   if (codigo === '+') {
-    tel.value = '+' + actual;
+    tel.value = '+';
   } else {
-    tel.value = codigo + ' ' + actual;
+    tel.value = actual ? codigo + ' ' + actual : codigo + ' ';
   }
   tel.focus();
 }

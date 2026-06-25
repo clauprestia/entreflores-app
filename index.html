@@ -9,20 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --rosa: #b05a8a;
-  --rosa-light: #fdf0f7;
-  --rosa-dark: #8a3f6e;
-  --cyan: #0097a7;
-  --cyan-light: #e0f7fa;
-  --cyan-dark: #006978;
-  --steel-dark: #455a64;
-  --steel-light: #eceff1;
+  --rosa: #c2739e;
+  --rosa-light: #3a1f2e;
+  --rosa-dark: #e89fc5;
+  --cyan: #00bcd4;
+  --cyan-light: #0a2a2e;
+  --cyan-dark: #80deea;
+  --steel-dark: #90a4ae;
+  --steel-light: #2a3540;
   --steel-mid: #78909c;
-  --text: #1a1a1a;
-  --text-muted: #888;
-  --border: #e8e0e5;
-  --bg: #faf8f9;
-  --white: #ffffff;
+  --text: #e8e8e8;
+  --text-muted: #8a9bb0;
+  --border: #2a3545;
+  --bg: #0f1923;
+  --white: #162230;
   --radius: 10px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -115,10 +115,10 @@ tr:hover td { background: #f0f3f4; }
 .config-add button { background: var(--rosa); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
 .del-btn { background: transparent; border: none; cursor: pointer; color: var(--text-muted); font-size: 16px; padding: 2px 6px; }
 .del-btn:hover { color: #c0392b; }
-.tipo-btn { background: #eceff1; border: 1px solid #b0bec5; border-radius: 8px; padding: 10px 16px; font-size: 15px; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #546e7a; transition: all .15s; }
+.tipo-btn { background: #1e2d38; border: 1px solid #2a3545; border-radius: 8px; padding: 10px 16px; font-size: 15px; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #8a9bb0; transition: all .15s; }
 .tipo-btn .emoji { font-size: 20px; }
-.tipo-btn:hover { border-color: var(--steel-dark); background: #cfd8dc; }
-.tipo-active { background: var(--steel-dark); border-color: var(--steel-dark); color: #eceff1; font-weight: 500; }
+.tipo-btn:hover { border-color: var(--steel-mid); background: #243242; }
+.tipo-active { background: var(--steel-dark); border-color: var(--steel-dark); color: #0f1923; font-weight: 500; }
 
 @media (max-width: 500px) {
   .nav button span { display: none; }
@@ -192,10 +192,10 @@ tr:hover td { background: #f0f3f4; }
       <div class="field-row">
         <div><label class="field-label">Teléfono</label>
           <div style="display:flex;gap:8px;margin-bottom:8px">
-            <button type="button" onclick="setCodigoPais('+34')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#e53935;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">E<span style="font-size:8px;color:#546e7a;font-weight:400;text-shadow:none">+34</span></button>
-            <button type="button" onclick="setCodigoPais('+7')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#ffffff;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">R<span style="font-size:8px;color:#546e7a;font-weight:400;text-shadow:none">+7</span></button>
-            <button type="button" onclick="setCodigoPais('+380')" style="padding:6px 12px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#1565c0;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">U<span style="font-size:8px;color:#546e7a;font-weight:400;text-shadow:none">+380</span></button>
-            <button type="button" onclick="setCodigoPais('+')" style="padding:6px 16px;border-radius:8px;border:2px solid #37474f;background:#eceff1;color:#37474f;text-shadow:-1px -1px 0 #37474f,1px -1px 0 #37474f,-1px 1px 0 #37474f,1px 1px 0 #37474f;font-weight:700;font-size:22px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
+            <button type="button" onclick="setCodigoPais('+34')" style="padding:6px 12px;border-radius:8px;border:2px solid #546e7a;background:#1e2d38;color:#e53935;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">E<span style="font-size:8px;color:#8a9bb0;font-weight:400;text-shadow:none">+34</span></button>
+            <button type="button" onclick="setCodigoPais('+7')" style="padding:6px 12px;border-radius:8px;border:2px solid #546e7a;background:#1e2d38;color:#ffffff;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">R<span style="font-size:8px;color:#8a9bb0;font-weight:400;text-shadow:none">+7</span></button>
+            <button type="button" onclick="setCodigoPais('+380')" style="padding:6px 12px;border-radius:8px;border:2px solid #546e7a;background:#1e2d38;color:#42a5f5;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;font-weight:700;font-size:19px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;line-height:1;gap:3px">U<span style="font-size:8px;color:#8a9bb0;font-weight:400;text-shadow:none">+380</span></button>
+            <button type="button" onclick="setCodigoPais('+')" style="padding:6px 16px;border-radius:8px;border:2px solid #546e7a;background:#1e2d38;color:#e8e8e8;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;font-weight:700;font-size:22px;cursor:pointer;font-family:'DM Sans',sans-serif">+</button>
           </div>
           <input type="tel" id="input-tel" placeholder="6XX XXX XXX"></div>
         <div>
@@ -231,8 +231,8 @@ tr:hover td { background: #f0f3f4; }
       <div class="field-full">
         <label class="field-label">Método de pago</label>
         <div style="display:flex;gap:8px;margin-bottom:4px">
-          <button type="button" id="pago-tpv" onclick="setPago('tpv')" style="flex:1;padding:7px 12px;border-radius:8px;border:2px solid #455a64;background:#455a64;color:#eceff1;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif"><span style="font-size:20px">💳</span> TPV</button>
-          <button type="button" id="pago-efectivo" onclick="setPago('efectivo')" style="flex:1;padding:7px 12px;border-radius:8px;border:1px solid #b0bec5;background:#eceff1;color:#546e7a;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif"><span style="font-size:20px">💰</span> Cash</button>
+          <button type="button" id="pago-tpv" onclick="setPago('tpv')" style="flex:1;padding:7px 12px;border-radius:8px;border:2px solid #546e7a;background:#546e7a;color:#eceff1;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif"><span style="font-size:20px">💳</span> TPV</button>
+          <button type="button" id="pago-efectivo" onclick="setPago('efectivo')" style="flex:1;padding:7px 12px;border-radius:8px;border:1px solid #2a3545;background:#1e2d38;color:#8a9bb0;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif"><span style="font-size:20px">💰</span> Cash</button>
         </div>
       </div>
       <div class="field-row">
@@ -673,7 +673,7 @@ function filtrarSec(sec, btn) {
 function buscarCliente(val) {
   const box = document.getElementById('suggest-box');
   if (!val || val.length < 2) { box.style.display = 'none'; return; }
-  const matches = Object.keys(clientesCache).filter(n => n.toLowerCase().includes(val.toLowerCase())).slice(0,6);
+  const matches = Object.keys(clientesCache).filter(n => norm(n).includes(norm(val))).slice(0,6);
   if (!matches.length) { box.style.display = 'none'; return; }
   box.innerHTML = matches.map(n => {
     const freq = clientesCache[n].compras >= 3 ? ' ⭐' : '';
@@ -751,11 +751,11 @@ function renderClientes() {
   const fbEl = document.getElementById('filtro-barrio-c');
   const tbody = document.getElementById('tabla-clientes');
   if (!fnEl || !fbEl || !tbody) return;
-  const fn = fnEl.value.toLowerCase();
-  const fb = fbEl.value.toLowerCase();
+  const fn = norm(fnEl.value);
+  const fb = norm(fbEl.value);
   let lista = Object.entries(clientesCache);
-  if (fn) lista = lista.filter(([n]) => n.toLowerCase().includes(fn));
-  if (fb) lista = lista.filter(([,c]) => (c.barrio||'').toLowerCase().includes(fb));
+  if (fn) lista = lista.filter(([n]) => norm(n).includes(fn));
+  if (fb) lista = lista.filter(([,c]) => norm(c.barrio||'').includes(fb));
   if (!lista.length) { tbody.innerHTML = '<tr><td colspan="7" class="empty">Sin clientes aún</td></tr>'; return; }
   tbody.innerHTML = lista.map(([n,c]) => `
     <tr>
@@ -773,10 +773,10 @@ function renderVentas() {
   const foEl = document.getElementById('filtro-ocasion-v');
   const tbody = document.getElementById('tabla-ventas');
   if (!frEl || !foEl || !tbody) return;
-  const fr = frEl.value.toLowerCase();
+  const fr = norm(frEl.value);
   const fo = foEl.value;
   let lista = [...ventasCache];
-  if (fr) lista = lista.filter(v => (v.ramo||'').toLowerCase().includes(fr)||(v.nombre||'').toLowerCase().includes(fr));
+  if (fr) lista = lista.filter(v => norm(v.ramo||'').includes(fr) || norm(v.nombre||'').includes(fr));
   if (fo) lista = lista.filter(v => v.ocasion===fo);
   if (!lista.length) { tbody.innerHTML = '<tr><td colspan="8" class="empty">Sin ventas</td></tr>'; return; }
   tbody.innerHTML = lista.map(v => {
@@ -867,10 +867,10 @@ function renderGraficos() {
 }
 
 function pedirResena(nombre, tel) {
-  const msg = encodeURIComponent(`Hola ${nombre} 🌸 Gracias por tu visita a Entreflores. Si te gustó, nos ayudarías mucho con una reseña en Google — tarda un minuto. Y de regalo, un 10% en tu próxima compra de +20€ 💐\n👉 ${REVIEW_LINK}`);
+  const msg = encodeURIComponent('Hola ' + nombre + ' 🌸 Gracias por elegirnos. Si quedaste satisfecho/a, nos ayudarías mucho con una reseña de un minuto en Google. Como agradecimiento por tu tiempo, te damos un 10% en tu próxima compra 💐\n👉 ' + REVIEW_LINK);
   const telLimpio = (tel||'').replace(/\s/g,'').replace('+','');
   const waUrl = telLimpio ? `https://wa.me/${telLimpio}?text=${msg}` : `https://wa.me/?text=${msg}`;
-  const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(REVIEW_LINK)}&text=${encodeURIComponent(`Hola ${nombre} 🌸 ¡Gracias por tu compra en Entreflores! ¿Nos dejás una reseña en Google?`)}`;
+  const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(REVIEW_LINK)}&text=${encodeURIComponent(`Hola ${nombre} 🌸 Gracias por elegirnos. ¿Nos dejás una reseña de un minuto en Google? Como agradecimiento, un 10% en tu próxima compra 💐`)}`;
   const overlay = document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px';
   overlay.innerHTML=`<div style="background:var(--white);border-radius:16px;padding:26px;max-width:320px;width:100%;text-align:center">
@@ -1089,20 +1089,24 @@ function setCodigoPais(codigo) {
   tel.focus();
 }
 
-function setPago(metodo) {
+function norm(s) {
+  return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+
+
   const tpvBtn = document.getElementById('pago-tpv');
   const efBtn = document.getElementById('pago-efectivo');
   const base = 'flex:1;padding:7px 12px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:DM Sans,sans-serif';
   if (metodo === 'tpv') {
     tpvBtn.innerHTML = '<span style="font-size:20px">💳</span> TPV';
-    tpvBtn.style.cssText = base + ';border:2px solid #455a64;background:#455a64;color:#eceff1';
+    tpvBtn.style.cssText = base + ';border:2px solid #546e7a;background:#546e7a;color:#eceff1';
     efBtn.innerHTML = '<span style="font-size:20px">💰</span> Cash';
-    efBtn.style.cssText = base + ';border:1px solid #b0bec5;background:#eceff1;color:#546e7a';
+    efBtn.style.cssText = base + ';border:1px solid #2a3545;background:#1e2d38;color:#8a9bb0';
   } else {
     efBtn.innerHTML = '<span style="font-size:20px">💰</span> Cash';
-    efBtn.style.cssText = base + ';border:2px solid #455a64;background:#455a64;color:#eceff1';
+    efBtn.style.cssText = base + ';border:2px solid #546e7a;background:#546e7a;color:#eceff1';
     tpvBtn.innerHTML = '<span style="font-size:20px">💳</span> TPV';
-    tpvBtn.style.cssText = base + ';border:1px solid #b0bec5;background:#eceff1;color:#546e7a';
+    tpvBtn.style.cssText = base + ';border:1px solid #2a3545;background:#1e2d38;color:#8a9bb0';
   }
 }
 

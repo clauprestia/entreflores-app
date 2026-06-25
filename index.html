@@ -595,11 +595,11 @@ function showApp() {
     document.getElementById('stats-row').style.display = 'none';
   }
   document.getElementById('input-fecha').value = new Date().toISOString().split('T')[0];
-  loadConfig();
-  renderRamos(null);
-  renderFloresVenta();
-  renderFlorSelectCompra();
-  document.getElementById('comp-fecha').value = new Date().toISOString().split('T')[0];
+  try { loadConfig(); } catch(e) { console.warn('loadConfig error', e); }
+  try { renderRamos(null); } catch(e) { console.warn('renderRamos error', e); }
+  try { renderFloresVenta(); } catch(e) { console.warn('renderFloresVenta error', e); }
+  try { renderFlorSelectCompra(); } catch(e) { console.warn('renderFlorSelectCompra error', e); }
+  try { document.getElementById('comp-fecha').value = new Date().toISOString().split('T')[0]; } catch(e) {}
   cargarVentas();
   cargarCompras();
 }

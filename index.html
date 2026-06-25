@@ -1093,7 +1093,7 @@ function norm(s) {
   return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 }
 
-
+function setPago(metodo) {
   const tpvBtn = document.getElementById('pago-tpv');
   const efBtn = document.getElementById('pago-efectivo');
   const base = 'flex:1;padding:7px 12px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:DM Sans,sans-serif';

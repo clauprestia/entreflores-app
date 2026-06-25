@@ -21,12 +21,12 @@
   --text: #e8e8e8;
   --text-muted: #8a9bb0;
   --border: #2a3545;
-  --bg: #0f1923;
+  --bg: #0d0d0d;
   --white: #162230;
   --radius: 10px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; }
+body { font-family: 'DM Sans', sans-serif; background-color: #0d0d0d; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3C!-- Flor 1 --%3E%3Ccircle cx='20' cy='20' r='3' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.07'/%3E%3Ccircle cx='20' cy='14' r='2' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='26' cy='20' r='2' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='20' cy='26' r='2' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='14' cy='20' r='2' fill='%23ffffff' opacity='0.05'/%3E%3Cline x1='20' y1='28' x2='20' y2='38' stroke='%23ffffff' stroke-width='0.8' opacity='0.07'/%3E%3Cellipse cx='17' cy='34' rx='3' ry='5' fill='none' stroke='%23ffffff' stroke-width='0.7' opacity='0.06' transform='rotate(-30 17 34)'/%3E%3C!-- Maceta --%3E%3Crect x='55' y='68' width='14' height='10' rx='2' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.07'/%3E%3Cline x1='62' y1='68' x2='62' y2='58' stroke='%23ffffff' stroke-width='0.8' opacity='0.07'/%3E%3Ccircle cx='62' cy='55' r='4' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.06'/%3E%3Ccircle cx='58' cy='51' r='2.5' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='66' cy='51' r='2.5' fill='%23ffffff' opacity='0.04'/%3E%3C!-- Hoja --%3E%3Cellipse cx='95' cy='30' rx='5' ry='10' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.06' transform='rotate(-20 95 30)'/%3E%3Cline x1='95' y1='20' x2='95' y2='40' stroke='%23ffffff' stroke-width='0.5' opacity='0.05'/%3E%3C!-- Flor pequeña --%3E%3Ccircle cx='30' cy='85' r='2' fill='none' stroke='%23ffffff' stroke-width='0.7' opacity='0.06'/%3E%3Ccircle cx='30' cy='81' r='1.5' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='34' cy='85' r='1.5' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='30' cy='89' r='1.5' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='26' cy='85' r='1.5' fill='%23ffffff' opacity='0.04'/%3E%3Cline x1='30' y1='91' x2='30' y2='98' stroke='%23ffffff' stroke-width='0.7' opacity='0.06'/%3E%3C!-- Ramito --%3E%3Cline x1='85' y1='95' x2='85' y2='80' stroke='%23ffffff' stroke-width='0.8' opacity='0.07'/%3E%3Ccircle cx='85' cy='78' r='3' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='81' cy='82' r='2' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='89' cy='82' r='2' fill='%23ffffff' opacity='0.04'/%3E%3C/svg%3E"); background-repeat: repeat; color: var(--text); min-height: 100vh; font-size: 15px; }
 .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
 .login-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 40px 36px; width: 100%; max-width: 380px; text-align: center; }
 .login-field { margin-bottom: 14px; text-align: left; }
@@ -867,10 +867,13 @@ function renderGraficos() {
 }
 
 function pedirResena(nombre, tel) {
-  const msg = encodeURIComponent('Hola ' + nombre + ' 🌸 Gracias por elegirnos. Si quedaste satisfecho/a, nos ayudarías mucho con una reseña de un minuto en Google. Como agradecimiento por tu tiempo, te damos un 10% en tu próxima compra 💐\n👉 ' + REVIEW_LINK);
+  const link = REVIEW_LINK;
+  const texto = 'Hola ' + nombre + ' \uD83C\uDF38 Gracias por elegirnos. Si quedaste satisfecho/a, nos ayudar\u00EDas mucho con una rese\u00F1a de un minuto en Google. Como agradecimiento por tu tiempo, te damos un 10% en tu pr\u00F3xima compra \uD83D\uDC90\n\n' + link;
+  const msg = encodeURIComponent(texto);
   const telLimpio = (tel||'').replace(/\s/g,'').replace('+','');
-  const waUrl = telLimpio ? `https://wa.me/${telLimpio}?text=${msg}` : `https://wa.me/?text=${msg}`;
-  const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(REVIEW_LINK)}&text=${encodeURIComponent(`Hola ${nombre} 🌸 Gracias por elegirnos. ¿Nos dejás una reseña de un minuto en Google? Como agradecimiento, un 10% en tu próxima compra 💐`)}`;
+  const waUrl = telLimpio ? 'https://wa.me/' + telLimpio + '?text=' + msg : 'https://wa.me/?text=' + msg;
+  const tgTexto = 'Hola ' + nombre + ' \uD83C\uDF38 Gracias por elegirnos. \u00BFNos dej\u00E1s una rese\u00F1a de un minuto en Google? Como agradecimiento, un 10% en tu pr\u00F3xima compra \uD83D\uDC90';
+  const tgUrl = 'https://t.me/share/url?url=' + encodeURIComponent(link) + '&text=' + encodeURIComponent(tgTexto);
   const overlay = document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px';
   overlay.innerHTML=`<div style="background:var(--white);border-radius:16px;padding:26px;max-width:320px;width:100%;text-align:center">

@@ -27,7 +27,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'DM Sans', sans-serif; background-color: #0d0d0d; color: var(--text); min-height: 100vh; font-size: 15px; position: relative; }
-body::before { content: ''; position: fixed; inset: 0; background-image: url("tapiz.png"); background-repeat: repeat; background-size: auto; opacity: 0.08; pointer-events: none; z-index: 0; }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("tapiz.png"); background-repeat: repeat; background-size: auto; opacity: 0.08; pointer-events: none; z-index: -1; }
 body > * { position: relative; z-index: 1; }
 .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
 .login-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 40px 36px; width: 100%; max-width: 380px; text-align: center; }
@@ -81,7 +81,7 @@ table { width: 100%; border-collapse: collapse; font-size: 12px; }
 th { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
 td { padding: 9px 10px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: rgba(255,255,255,0.04); }
+tr:hover td { background: rgba(255,255,255,0.08); }
 .badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; display: inline-block; }
 .badge-rosa { background: var(--rosa-light); color: var(--rosa-dark); }
 .suggest-wrap { position: relative; }
@@ -151,7 +151,7 @@ tr:hover td { background: rgba(255,255,255,0.04); }
 
 <div class="app" id="app-screen">
   <div class="header">
-    <img src="logo-white.png" alt="Entreflores" style="height:54px">
+    <img src="logo-white.png" alt="Entreflores" style="height:48px">
     <nav class="nav">
       <button class="active" onclick="showTab('nueva',this)">➕ <span>Nueva venta</span></button>
       <button onclick="showTab('clientes',this)">👥 <span>Clientes</span></button>

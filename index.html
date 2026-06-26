@@ -39,7 +39,7 @@ body > * { position: relative; z-index: 1; }
 .btn-login:hover { background: var(--rosa-dark); }
 .login-error { color: #c0392b; font-size: 13px; margin-top: 10px; display: none; }
 .app { display: none; }
-.header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 16px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 4px; }
+.header { background: rgba(13,13,13,0.75); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 16px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 4px; }
 .nav { display: flex; gap: 2px; flex-wrap: wrap; }
 .nav button { background: transparent; border: 1px solid transparent; padding: 6px 10px; border-radius: 8px; font-size: 12px; font-family: 'DM Sans', sans-serif; cursor: pointer; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
 .nav button.active { background: var(--cyan-light); color: var(--cyan-dark); font-weight: 500; border: 1px solid var(--cyan); }
@@ -152,7 +152,7 @@ tr:hover td { background: rgba(255,255,255,0.08); }
 
 <div class="app" id="app-screen">
   <div class="header">
-    <img src="logo-white.png" alt="Entreflores" style="height:48px">
+    <img src="logo-white.png" alt="Entreflores" style="height:42px">
     <nav class="nav">
       <button class="active" onclick="showTab('nueva',this)">➕ <span>Nueva venta</span></button>
       <button onclick="showTab('clientes',this)">👥 <span>Clientes</span></button>

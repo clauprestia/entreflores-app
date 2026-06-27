@@ -22,11 +22,11 @@
   --text-muted: #8a9bb0;
   --border: #2a3545;
   --bg: #0d0d0d;
-  --white: #162230;
+  --white: rgba(22,34,48,0.75);
   --radius: 10px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background-color: #0d0d0d; background-image: url("tapiz.png"); background-repeat: no-repeat; background-size: cover; background-position: center center; background-attachment: fixed; color: var(--text); min-height: 100vh; font-size: 15px; position: relative; }
+body { font-family: 'DM Sans', sans-serif; background-color: #0d0d0d; background-image: url("tapiz.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center center; background-attachment: fixed; color: var(--text); min-height: 100vh; font-size: 15px; position: relative; }
 body::before { content: ''; position: fixed; inset: 0; background: rgba(13,13,13,0.72); pointer-events: none; z-index: 0; }
 body > * { position: relative; z-index: 1; }
 .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -52,7 +52,7 @@ body > * { position: relative; z-index: 1; }
 .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
 .card-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--rosa-dark); margin-bottom: 14px; }
 label.field-label { display: block; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); margin-bottom: 5px; }
-input, select, textarea { width: 100%; font-size: 14px; font-family: 'DM Sans', sans-serif; padding: 8px 11px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); color: var(--text); outline: none; -webkit-appearance: none; }
+input, select, textarea { width: 100%; font-size: 14px; font-family: 'DM Sans', sans-serif; padding: 8px 11px; border: 1px solid var(--border); border-radius: 8px; background: #162230; color: var(--text); outline: none; -webkit-appearance: none; }
 input:focus, select:focus, textarea:focus { border-color: var(--cyan); }
 textarea { resize: vertical; min-height: 56px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }

@@ -91,13 +91,13 @@ tr:hover td { background: rgba(255,255,255,0.08); }
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: white; padding: 10px 20px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 999; white-space: nowrap; }
 .toast.show { opacity: 1; }
 .empty { text-align: center; padding: 32px; color: var(--text-muted); font-size: 13px; }
-.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
 .modal-overlay.show { display: flex; }
-.modal { background: var(--white); border-radius: 16px; padding: 28px; width: 100%; max-width: 380px; }
+.modal { background: #162230; border: 1px solid var(--border); border-radius: 16px; padding: 28px; width: 100%; max-width: 380px; }
 .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--rosa-dark); margin-bottom: 18px; }
 .modal-error { color: #c0392b; font-size: 13px; margin-top: 8px; display: none; }
 .modal-btns { display: flex; gap: 8px; margin-top: 14px; }
-.btn-cancel { flex: 1; background: transparent; border: 1px solid var(--border); padding: 10px; border-radius: 8px; font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-cancel { flex: 1; background: transparent; color: var(--text); border: 1px solid var(--border); padding: 10px; border-radius: 8px; font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; }
 
 /* Flores selector */
 .flores-selector { border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: var(--bg); margin-bottom: 12px; }
@@ -155,7 +155,7 @@ tr:hover td { background: rgba(255,255,255,0.08); }
     <img src="logo-white.png" alt="Entreflores" style="height:42px">
     <nav class="nav">
       <button class="active" onclick="showTab('nueva',this)">➕ <span>Nueva venta</span></button>
-      <button onclick="showTab('clientes',this)">👥 <span>Clientes</span></button>
+      <button id="btn-clientes" onclick="showTab('clientes',this)">👥 <span>Clientes</span></button>
       <button id="btn-ventas" onclick="showTab('ventas',this)">📋 <span>Ventas</span></button>
       <button id="btn-graficos" onclick="showTab('graficos',this)">📊 <span>Gráficos</span></button>
       <button id="btn-compras" onclick="showTab('compras',this)">🛒 <span>Compras</span></button>
@@ -592,9 +592,9 @@ async function logoutUser() {
 function showApp() {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'block';
-  document.getElementById('user-badge').textContent = currentRol === 'duena' ? '👑 Dueña' : '🌸 Empleado';
+  document.getElementById('user-badge').textContent = currentRol === 'duena' ? '👑 Dueños' : '🌸 Empleado';
   if (currentRol !== 'duena') {
-    ['btn-ventas','btn-graficos','btn-compras'].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = 'none'; });
+    ['btn-clientes','btn-ventas','btn-graficos','btn-compras'].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = 'none'; });
     document.getElementById('stats-row').style.display = 'none';
   }
   document.getElementById('input-fecha').value = new Date().toISOString().split('T')[0];
@@ -918,6 +918,8 @@ function abrirCambiarPass() {
   document.getElementById('modal-pass').classList.add('show');
 }
 function cerrarModal() { document.getElementById('modal-pass').classList.remove('show'); }
+document.getElementById('modal-pass').addEventListener('click', e => { if (e.target.id === 'modal-pass') cerrarModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
 async function cambiarPass() {
   const p1=document.getElementById('new-pass').value;
   const p2=document.getElementById('new-pass2').value;
